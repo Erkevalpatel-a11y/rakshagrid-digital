@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#04060d">
+<title>RakshaGrid Digital — India's Digital Protection Network</title>
+<meta name="description" content="RakshaGrid Digital is a privacy-first digital protection platform for India — browser-based security checks, link risk analysis, password safety and protection tools.">
+<meta property="og:title" content="RakshaGrid Digital — India's Digital Protection Network">
+<meta property="og:description" content="Privacy-first, browser-based digital protection tools built for India's connected future.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===================== SVG ICON SPRITE ===================== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.6-3 7.6-7 9-4-1.4-7-4.4-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10.5" width="15" height="9.5" rx="2.2"/><path d="M8 10.5V7.5a4 4 0 018 0v3"/><circle cx="12" cy="15.2" r="1.1" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 13.5a4 4 0 006 0l2-2a4 4 0 00-6-6l-1 1"/><path d="M13.5 10.5a4 4 0 00-6 0l-2 2a4 4 0 006 6l1-1"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-browser" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.4"/><path d="M3 9h18"/><circle cx="6.3" cy="6.6" r="0.7" fill="currentColor" stroke="none"/><circle cx="8.7" cy="6.6" r="0.7" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-device" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="2.5" width="11" height="19" rx="2.6"/><path d="M10.5 18.5h3"/></symbol>
+    <symbol id="i-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="4"/><path d="M11 11l8 8"/><path d="M16.5 16.5l2-2"/><path d="M14 14l1.6-1.6"/></symbol>
+    <symbol id="i-hash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h16M4 15h16M10 3L8 21M16 3l-2 18"/></symbol>
+    <symbol id="i-qr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.2"/><rect x="14" y="3" width="7" height="7" rx="1.2"/><rect x="3" y="14" width="7" height="7" rx="1.2"/><path d="M14 14h3v3h-3zM20 14v.01M14 20v.01M20 20v.01M20 17v.01M17 17v.01"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8l-5-5z"/><path d="M14 3v5h5"/></symbol>
+    <symbol id="i-encrypt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="10.5" width="17" height="10" rx="2.2"/><path d="M7.5 10.5V7a4.5 4.5 0 019 0v3.5"/><path d="M12 14v3"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.7" cy="6" r="1.4"/><circle cx="4.7" cy="12" r="1.4"/><circle cx="4.7" cy="18" r="1.4"/></symbol>
+    <symbol id="i-json" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4c-2 0-3 1-3 3v1c0 1.5-1 2.5-2.5 4 1.5 1.5 2.5 2.5 2.5 4v1c0 2 1 3 3 3"/><path d="M15 4c2 0 3 1 3 3v1c0 1.5 1 2.5 2.5 4-1.5 1.5-2.5 2.5-2.5 4v1c0 2-1 3-3 3"/><path d="M12.5 9v.01M11.5 15v.01"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8a2 2 0 012-2h1.5l1.4-2h6.2l1.4 2H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/><circle cx="12" cy="12.5" r="3.4"/></symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0"/><path d="M12 18v3"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6 7-11a7 7 0 10-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 1112 0c0 5 2 6 2 6H4s2-1 2-6z"/><path d="M10 20a2 2 0 004 0"/></symbol>
+    <symbol id="i-clipboard" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="17" rx="2.2"/><path d="M9 4V3h6v1"/><path d="M9 10h6M9 14h4"/></symbol>
+    <symbol id="i-cookie" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="1" fill="currentColor" stroke="none"/><circle cx="14" cy="9" r="1" fill="currentColor" stroke="none"/><circle cx="10" cy="15" r="1" fill="currentColor" stroke="none"/><circle cx="15.5" cy="14" r="1" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-storage" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></symbol>
+    <symbol id="i-cpu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2.2"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 019.5 4 8 8 0 1020 14.5z"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.5 3.8 5.7 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.7-3.8-9S9.5 5.5 12 3z"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.5l3.5 2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l9 15.5H3l9-15.5z"/><path d="M12 9.5v4"/><circle cx="12" cy="16.4" r="0.9" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><circle cx="12" cy="8" r="0.9" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-wand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18l9-9 3 3-9 9H6v-3z"/><path d="M15 5l.8 1.8L17.6 8l-1.8.8L15 10.6l-.8-1.8L12.4 8l1.8-.8L15 5z"/><path d="M6 4v3M4.5 5.5h3M19 16v2.5M17.75 17.25h2.5"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2.2"/><path d="M5 15H4.5A1.5 1.5 0 013 13.5v-9A1.5 1.5 0 014.5 3h9A1.5 1.5 0 0115 4.5V5"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16"/><path d="M9 7V5.2A1.2 1.2 0 0110.2 4h3.6A1.2 1.2 0 0115 5.2V7"/><path d="M6 7l1 12.8A1.2 1.2 0 008.2 21h7.6A1.2 1.2 0 0017 19.8L18 7"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.4"/><path d="M2.5 20a6.5 6.5 0 0113 0"/><path d="M16.5 5.6a3.4 3.4 0 010 6.6"/><path d="M21.5 20a6 6 0 00-4.5-5.8"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.3L19 10l-5.1 1.7L12 17l-1.9-5.3L5 10l5.1-1.7L12 3z"/><path d="M18.5 15.5l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7.7-2z"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M4.5 20h15"/></symbol>
+    <symbol id="i-gauge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18a9 9 0 1116 0"/><path d="M12 14l4-3.5"/><circle cx="12" cy="15" r="1.2" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-radar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/><path d="M12 12l6-4"/></symbol>
+    <symbol id="i-fingerprint" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4a8 8 0 018 8v1"/><path d="M4 12a8 8 0 018-8"/><path d="M6.5 12a5.5 5.5 0 0111 0v3"/><path d="M9 12a3 3 0 016 0v4"/><path d="M12 12v6"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/><path d="M3 17l9 5 9-5"/></symbol>
+    <symbol id="i-rocket" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 4c3.5-1 6.5 2 5.5 5.5-.7 2.4-3.4 5-5.5 6.5l-4-4c1.5-2.1 4.1-4.8 6.5-5.5z"/><path d="M9.5 12L6 9.5l1-2.5 3 1"/><path d="M12 14.5l2.5 3.5 2.5-1-1-3"/><path d="M6 15c-1.2.8-2 3-2 4 1 0 3.2-.8 4-2"/></symbol>
+    <symbol id="i-graduation" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-4.5L21 9l-9 4.5L3 9z"/><path d="M7 11v4.5c0 1.2 2.2 2.8 5 2.8s5-1.6 5-2.8V11"/><path d="M21 9v5"/></symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2.2"/><path d="M8 7V5.2A1.2 1.2 0 019.2 4h5.6A1.2 1.2 0 0116 5.2V7"/><path d="M3 12h18"/></symbol>
+    <symbol id="i-store" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 9L4.5 4h15l1 5"/><path d="M4.5 9v10.5h15V9"/><path d="M9.5 19.5V14h5v5.5"/><path d="M3.5 9a2.5 2.5 0 005 0 2.5 2.5 0 005 0 2.5 2.5 0 005 0 2.5 2.5 0 005 0"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-9.7A3.9 3.9 0 0112 7.6 3.9 3.9 0 0119 10.3C19 15.6 12 20 12 20z"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 10-2.3 6.3"/><path d="M20 5v6h-6"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 14v5H5V6h5"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 8l-4 4 4 4"/><path d="M16 8l4 4-4 4"/><path d="M13.5 6l-3 12"/></symbol>
+    <symbol id="i-shield-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5l8 3.3v5.4c0 5-3.4 8.6-8 10.3-4.6-1.7-8-5.3-8-10.3V5.8l8-3.3z"/><path d="M12 7v10M7.5 9.5h9M7.5 13.5h9"/></symbol>
+    <symbol id="i-upload-cloud" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.5a4 4 0 01-.5-8 5.5 5.5 0 0110.6 1.3A3.5 3.5 0 0117 16.5"/><path d="M12 12v7"/><path d="M9 15l3-3 3 3"/></symbol>
+  </defs>
+</svg>
+
+<div class="bg-field" aria-hidden="true"></div>
+<div class="bg-grid" aria-hidden="true"></div>
+
+<!-- ===================== NAVIGATION ===================== -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="brand" href="#home" aria-label="RakshaGrid Digital — home">
+      <svg class="brand__mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <path d="M24 3l17 7v12c0 10.5-7.2 18-17 22-9.8-4-17-11.5-17-22V10l17-7z" stroke="url(#bg1)" stroke-width="2.2"/>
+        <path d="M24 10.5l10.5 4.3v7.4c0 6.4-4.5 11-10.5 13.4-6-2.4-10.5-7-10.5-13.4v-7.4L24 10.5z" fill="rgba(61,139,255,0.10)" stroke="rgba(53,214,239,0.5)" stroke-width="1.3"/>
+        <path d="M24 15v9M18.5 19.5h11M18.5 24.5h11" stroke="#35d6ef" stroke-width="1.3" stroke-linecap="round" opacity="0.9"/>
+        <circle cx="24" cy="19.5" r="1.8" fill="#35d6ef"/>
+        <defs><linearGradient id="bg1" x1="7" y1="3" x2="41" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#3d8bff"/><stop offset="1" stop-color="#35d6ef"/></linearGradient></defs>
+      </svg>
+      <span class="brand__text">
+        <span class="brand__name">RAKSHAGRID</span>
+        <span class="brand__sub">DIGITAL</span>
+      </span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="#home">Home</a>
+      <a class="nav__link" href="#center">Security Center</a>
+      <a class="nav__link" href="#scanner">Risk Scanner</a>
+      <a class="nav__link" href="#tools">Protection Tools</a>
+      <a class="nav__link" href="#dashboard">Dashboard</a>
+      <a class="nav__link" href="#company">Company</a>
+    </nav>
+    <a class="btn btn--primary btn--sm nav__cta" href="#center">Check Security</a>
+    <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="nav__mobile" id="mobileMenu">
+  <a href="#home">Home</a>
+  <a href="#center">Security Center</a>
+  <a href="#scanner">Risk Scanner</a>
+  <a href="#tools">Protection Tools</a>
+  <a href="#dashboard">Dashboard</a>
+  <a href="#company">Company</a>
+  <a class="btn btn--primary" href="#center">Check Security</a>
+</div>
+
+<main id="main">
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="home">
+  <div class="hero__canvas" id="heroCanvas" aria-hidden="true"></div>
+  <div class="hero__vignette" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="hero__grid">
+      <div class="hero__copy">
+        <span class="eyebrow" data-hero="fade">India's Digital Protection Network</span>
+        <h1 class="hero__title">
+          <span class="line"><span data-hero="line">Protect Every</span></span>
+          <span class="line"><span data-hero="line" class="grad-text">Digital Connection.</span></span>
+        </h1>
+        <p class="hero__tag" data-hero="fade">Built for India's Digital Future.</p>
+        <p class="hero__desc" data-hero="fade">RakshaGrid Digital brings privacy-first security checks and digital protection tools into one modern platform.</p>
+        <div class="hero__actions" data-hero="fade">
+          <a class="btn btn--primary" href="#scanner">
+            <svg class="btn__ico"><use href="#i-radar"/></svg>
+            Check Security
+          </a>
+          <a class="btn btn--ghost" href="#center">
+            Explore Platform
+            <svg class="btn__ico"><use href="#i-arrow"/></svg>
+          </a>
+        </div>
+        <div class="hero__badges" data-hero="fade">
+          <span class="chip"><span class="dot"></span>Runs entirely in your browser</span>
+          <span class="chip"><span class="dot blue"></span>No sign-up required</span>
+          <span class="chip"><span class="dot saffron"></span>Privacy-first by design</span>
+        </div>
+      </div>
+
+      <!-- Security status panel -->
+      <aside class="status-panel" aria-label="RakshaGrid security status">
+        <div class="status-panel__top">
+          <div>
+            <div class="status-panel__label">Protection Overview</div>
+            <div class="status-panel__title">RakshaGrid Security Status</div>
+          </div>
+          <span class="pill pill--info"><span class="dot"></span>Live local</span>
+        </div>
+        <div class="score-ring-wrap">
+          <div class="ring" aria-hidden="true">
+            <svg width="118" height="118" viewBox="0 0 118 118">
+              <circle cx="59" cy="59" r="50" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="9"/>
+              <circle id="panelRing" cx="59" cy="59" r="50" fill="none" stroke="url(#ringGrad)" stroke-width="9" stroke-linecap="round" stroke-dasharray="314" stroke-dashoffset="314"/>
+              <defs><linearGradient id="ringGrad" x1="0" y1="0" x2="118" y2="118" gradientUnits="userSpaceOnUse"><stop stop-color="#3d8bff"/><stop offset="1" stop-color="#35d6ef"/></linearGradient></defs>
+            </svg>
+            <div class="ring__val">
+              <span class="ring__num" id="panelScore">82</span>
+              <span class="ring__den">/ 100</span>
+            </div>
+          </div>
+          <div class="score-meta">
+            <div class="score-meta__status" id="panelStatus">GOOD PROTECTION</div>
+            <div class="score-meta__desc">Derived from local browser checks on this device.</div>
+          </div>
+        </div>
+        <div class="checks" id="panelChecks">
+          <div class="check-row"><svg class="check-row__ico"><use href="#i-key"/></svg><span class="check-row__name">Password Security</span><span class="check-row__bar"><i data-check="password"></i></span><span class="check-row__val" data-val="password">—</span></div>
+          <div class="check-row"><svg class="check-row__ico"><use href="#i-eye"/></svg><span class="check-row__name">Privacy Configuration</span><span class="check-row__bar"><i data-check="privacy"></i></span><span class="check-row__val" data-val="privacy">—</span></div>
+          <div class="check-row"><svg class="check-row__ico"><use href="#i-browser"/></svg><span class="check-row__name">Browser Security</span><span class="check-row__bar"><i data-check="browser"></i></span><span class="check-row__val" data-val="browser">—</span></div>
+          <div class="check-row"><svg class="check-row__ico"><use href="#i-link"/></svg><span class="check-row__name">Link Risk</span><span class="check-row__bar"><i data-check="link"></i></span><span class="check-row__val" data-val="link">—</span></div>
+          <div class="check-row"><svg class="check-row__ico"><use href="#i-device"/></svg><span class="check-row__name">Device Protection</span><span class="check-row__bar"><i data-check="device"></i></span><span class="check-row__val" data-val="device">—</span></div>
+        </div>
+        <div class="status-panel__foot">
+          <svg><use href="#i-info"/></svg>
+          <span>Browser-based assessment — calculated locally, not a server-side scan.</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SECURITY CENTER ===================== -->
+<section class="section" id="center">
+  <div class="wrap">
+    <div class="sec-head center" data-reveal>
+      <span class="eyebrow center-line">Security Center</span>
+      <h2 class="section-title">Your Digital Security <span class="grad-text">Center</span></h2>
+      <p class="section-sub center">Six local checkpoints that help you understand your digital protection posture — all evaluated inside your browser.</p>
+    </div>
+    <div class="grid grid--3" id="centerGrid">
+      <article class="scard" data-reveal data-tilt>
+        <div class="scard__ico"><svg><use href="#i-gauge"/></svg></div>
+        <h3 class="scard__title">Security Score</h3>
+        <p class="scard__desc">An aggregate protection score built from your local checks across identity, privacy, passwords and browser safety.</p>
+        <div class="scard__foot"><span class="pill pill--info"><span class="dot"></span>Ready</span><a class="btn btn--ghost btn--sm" href="#score">Run Score</a></div>
+      </article>
+      <article class="scard" data-reveal data-tilt>
+        <div class="scard__ico"><svg><use href="#i-link"/></svg></div>
+        <h3 class="scard__title">Link Risk Check</h3>
+        <p class="scard__desc">Analyse a URL's structure for risk signals such as missing HTTPS, IP hosts, punycode and deceptive patterns.</p>
+        <div class="scard__foot"><span class="pill pill--warn"><span class="dot"></span>On-demand</span><a class="btn btn--ghost btn--sm" href="#scanner">Scan Link</a></div>
+      </article>
+      <article class="scard" data-reveal data-tilt>
+        <div class="scard__ico"><svg><use href="#i-key"/></svg></div>
+        <h3 class="scard__title">Password Security</h3>
+        <p class="scard__desc">Estimate password strength, length and character diversity — with nothing ever leaving your device.</p>
+        <div class="scard__foot"><span class="pill pill--ok"><span class="dot"></span>Local only</span><a class="btn btn--ghost btn--sm" href="#password">Check</a></div>
+      </article>
+      <article class="scard" data-reveal data-tilt>
+        <div class="scard__ico"><svg><use href="#i-eye"/></svg></div>
+        <h3 class="scard__title">Privacy Check</h3>
+        <p class="scard__desc">Review browser-available signals for camera, microphone, location, notifications, cookies and storage.</p>
+        <div class="scard__foot"><span class="pill pill--info"><span class="dot"></span>Review</span><a class="btn btn--ghost btn--sm" href="#privacy">Inspect</a></div>
+      </article>
+      <article class="scard" data-reveal data-tilt>
+        <div class="scard__ico"><svg><use href="#i-browser"/></svg></div>
+        <h3 class="scard__title">Browser Security</h3>
+        <p class="scard__desc">Confirm secure-context status, Web Crypto availability, Do-Not-Track and other browser-level safety signals.</p>
+        <div class="scard__foot"><span class="pill pill--ok"><span class="dot"></span>Available</span><a class="btn btn--ghost btn--sm" href="#device">View</a></div>
+      </article>
+      <article class="scard" data-reveal data-tilt>
+        <div class="scard__ico"><svg><use href="#i-device"/></svg></div>
+        <h3 class="scard__title">Device Security</h3>
+        <p class="scard__desc">Non-sensitive environment details — browser, platform category, resolution and preferences. Processed locally.</p>
+        <div class="scard__foot"><span class="pill pill--info"><span class="dot"></span>Local</span><a class="btn btn--ghost btn--sm" href="#device">Inspect</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RISK SCANNER ===================== -->
+<section class="section" id="scanner">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="eyebrow">Risk Scanner</span>
+      <h2 class="section-title">Digital <span class="grad-text">Risk Scanner</span></h2>
+      <p class="section-sub">Paste a link to analyse its structure for common risk indicators. This is a local, pattern-based assessment — the destination is never contacted, scanned or attacked.</p>
+    </div>
+    <div class="split split--wide-left">
+      <div class="panel" data-reveal>
+        <form id="scanForm" novalidate>
+          <div class="field">
+            <label for="scanUrl">Website or link to analyse</label>
+            <div class="input-row">
+              <input class="input" type="text" id="scanUrl" name="url" placeholder="example.com/login" autocomplete="off" spellcheck="false" inputmode="url" aria-describedby="scanHint">
+              <button class="btn btn--primary" type="submit" id="scanBtn">
+                <svg class="btn__ico"><use href="#i-radar"/></svg>
+                Analyse
+              </button>
+            </div>
+            <span class="hint" id="scanHint">Analysis happens entirely in your browser. The link is never opened or fetched.</span>
+          </div>
+        </form>
+        <div class="note">
+          <svg><use href="#i-info"/></svg>
+          <span>This browser-based assessment cannot guarantee that a website is safe. It checks the URL's structure for known risk patterns only.</span>
+        </div>
+        <div id="scanResult" class="result-card" aria-live="polite"></div>
+      </div>
+      <div class="panel" data-reveal>
+        <h3 style="font-size:1.05rem;margin-bottom:14px">What we check</h3>
+        <ul class="plist" id="scanChecksList">
+          <li class="prow"><span class="prow__ico"><svg><use href="#i-lock"/></svg></span><span class="prow__body"><span class="prow__name">HTTPS usage</span><span class="prow__desc">Encrypted scheme presence</span></span></li>
+          <li class="prow"><span class="prow__ico"><svg><use href="#i-code"/></svg></span><span class="prow__body"><span class="prow__name">URL length &amp; hostname structure</span><span class="prow__desc">Excessive length and odd host shapes</span></span></li>
+          <li class="prow"><span class="prow__ico"><svg><use href="#i-cpu"/></svg></span><span class="prow__body"><span class="prow__name">IP-address hostname</span><span class="prow__desc">Numeric hosts instead of a domain</span></span></li>
+          <li class="prow"><span class="prow__ico"><svg><use href="#i-globe"/></svg></span><span class="prow__body"><span class="prow__name">Punycode &amp; look-alike characters</span><span class="prow__desc">Homograph-style deception signals</span></span></li>
+          <li class="prow"><span class="prow__ico"><svg><use href="#i-alert"/></svg></span><span class="prow__body"><span class="prow__name">Unusual symbols, ports &amp; subdomains</span><span class="prow__desc">@-tricks, odd ports, deep nesting</span></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PASSWORD SECURITY ===================== -->
+<section class="section" id="password">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="eyebrow">Password Security</span>
+      <h2 class="section-title">Private Password <span class="grad-text">Security Check</span></h2>
+      <p class="section-sub">Evaluate strength as you type. Your password is analysed in memory only — never uploaded, stored or logged.</p>
+    </div>
+    <div class="split">
+      <div class="panel" data-reveal>
+        <div class="field">
+          <label for="pwInput">Enter a password to evaluate</label>
+          <div class="input-row">
+            <input class="input" type="password" id="pwInput" autocomplete="new-password" spellcheck="false" aria-describedby="pwHint">
+            <button class="btn btn--ghost" type="button" id="pwToggle" aria-label="Show or hide password" aria-pressed="false">Show</button>
+            <button class="btn btn--ghost" type="button" id="pwClear">Clear</button>
+          </div>
+          <span class="hint" id="pwHint">Your password stays in your browser.</span>
+        </div>
+        <div class="meter">
+          <div class="meter__track" id="pwMeter" role="progressbar" aria-label="Password strength" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0">
+            <span class="meter__seg"></span><span class="meter__seg"></span><span class="meter__seg"></span><span class="meter__seg"></span><span class="meter__seg"></span>
+          </div>
+          <div class="meter__meta"><span class="meter__cat" id="pwCat">Awaiting input</span><span id="pwEntropy">—</span></div>
+        </div>
+        <div class="criteria" id="pwCriteria">
+          <span class="crit" data-c="len"><span class="crit__dot"><svg><use href="#i-check"/></svg></span>12+ characters</span>
+          <span class="crit" data-c="upper"><span class="crit__dot"><svg><use href="#i-check"/></svg></span>Uppercase letters</span>
+          <span class="crit" data-c="lower"><span class="crit__dot"><svg><use href="#i-check"/></svg></span>Lowercase letters</span>
+          <span class="crit" data-c="num"><span class="crit__dot"><svg><use href="#i-check"/></svg></span>Numbers</span>
+          <span class="crit" data-c="sym"><span class="crit__dot"><svg><use href="#i-check"/></svg></span>Symbols</span>
+          <span class="crit" data-c="norepeat"><span class="crit__dot"><svg><use href="#i-check"/></svg></span>No repeated runs</span>
+        </div>
+      </div>
+      <div class="panel" data-reveal>
+        <h3 style="font-size:1.05rem;margin-bottom:14px">Local analysis signals</h3>
+        <div class="plist">
+          <div class="prow"><span class="prow__ico"><svg><use href="#i-hash"/></svg></span><span class="prow__body"><span class="prow__name">Length &amp; character diversity</span><span class="prow__desc">Counts across four character classes</span></span><span class="prow__val" id="pwDiversity">—</span></div>
+          <div class="prow"><span class="prow__ico"><svg><use href="#i-refresh"/></svg></span><span class="prow__body"><span class="prow__name">Repeated-character runs</span><span class="prow__desc">Detects aaa / 111 style patterns</span></span><span class="prow__val" id="pwRepeat">—</span></div>
+          <div class="prow"><span class="prow__ico"><svg><use href="#i-list"/></svg></span><span class="prow__body"><span class="prow__name">Common-pattern detection</span><span class="prow__desc">password, qwerty, 1234, dates</span></span><span class="prow__val" id="pwCommon">—</span></div>
+          <div class="prow"><span class="prow__ico"><svg><use href="#i-gauge"/></svg></span><span class="prow__body"><span class="prow__name">Estimated search space</span><span class="prow__desc">Approximate entropy, computed locally</span></span><span class="prow__val" id="pwSpace">—</span></div>
+        </div>
+        <div class="note note--green mt-16">
+          <svg><use href="#i-lock"/></svg>
+          <span>Nothing is transmitted. RakshaGrid never sees, stores or logs your password.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PRIVACY CHECK ===================== -->
+<section class="section" id="privacy">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="eyebrow">Privacy Check</span>
+      <h2 class="section-title">Privacy Protection <span class="grad-text">Center</span></h2>
+      <p class="section-sub">Browser-based inspection of permission and capability signals. Where the browser restricts access, we say so honestly instead of guessing.</p>
+    </div>
+    <div class="split split--wide-left">
+      <div class="panel" data-reveal>
+        <div class="plist" id="privacyList">
+          <div class="prow"><span class="prow__ico"><svg><use href="#i-camera"/></svg></span><span class="prow__body"><span class="prow__name">Camera permission</span><span class="prow__desc">Checked via Permissions API where supported</span></span><span class="prow__val" data-perm="camera">—</span></div>
+          <div class="prow"><span class="prow__ico"><svg><use href="#i-mic"/></svg></span><span class="prow__body"><span class="prow__name">Microphone permission</span><span class="prow__desc">Checked via Permissions API where supported</span></span><span class="prow__val" data-perm="microphone">—</span></div>
+          <div class="prow"><span class="prow__ico"><svg><use href="#i-pin"/></svg></span><span class="prow__body"><span class="prow__name">Location permission</span><span class="prow__desc">Never requested automatically</span></span><span class="prow__val" data-perm="geolocation">—</span></div>
+          <div class="prow"><span class="prow__ico"><svg><use href="#i-bell"/></svg></span><span class="prow__body"><span class="prow__name">Notifications</span><span class="prow__desc">Current browser permission state</span></span><span class="prow__val" data-perm="notifications">—</span></div>
+          <div class="prow"><span class="prow__ico"><svg><use href="#i-clipboard"/></svg></span><span class="prow__body"><span class="prow__name">Clipboard capability</span><span class="prow__desc">Whether async clipboard access exists</span></span><span class="prow__val" id="pvClipboard">—</span></div>
+          <div class="prow"><span class="prow__ico"><svg><use href="#i-cookie"/></svg></span><span class="prow__body"><span class="prow__name">Cookies</span><span class="prow__desc">Whether cookies are enabled in this browser</span></span><span class="prow__val" id="pvCookies">—</span></div>
+          <div class="prow"><span class="prow__ico"><svg><use href="#i-storage"/></svg></span><span class="prow__body"><span class="prow__name">Local storage</span><span class="prow__desc">Availability of localStorage / sessionStorage</span></span><span class="prow__val" id="pvStorage">—</span></div>
+        </div>
+        <div class="row-between mt-24">
+          <button class="btn btn--ghost btn--sm" id="privacyRefresh"><svg class="btn__ico"><use href="#i-refresh"/></svg>Re-check signals</button>
+          <span class="hint">No permission is requested unless you explicitly act.</span>
+        </div>
+      </div>
+      <div class="panel" data-reveal>
+        <h3 style="font-size:1.05rem;margin-bottom:14px">Review permissions</h3>
+        <p class="section-sub" style="font-size:0.88rem;margin-bottom:18px">These buttons only open a genuine browser capability when you choose to. RakshaGrid never requests permissions on its own.</p>
+        <div class="plist">
+          <div class="prow"><span class="prow__body"><span class="prow__name">Clipboard read demo</span><span class="prow__desc">Reads clipboard text only after you click</span></span><button class="btn btn--ghost btn--sm" id="btnClipRead" type="button">Review</button></div>
+          <div class="prow"><span class="prow__body"><span class="prow__name">Notifications request</span><span class="prow__desc">Triggers the browser's own prompt</span></span><button class="btn btn--ghost btn--sm" id="btnNotif" type="button">Review</button></div>
+        </div>
+        <div id="privacyNote" class="note mt-24">
+          <svg><use href="#i-info"/></svg>
+          <span>Some browser APIs restrict inspection for privacy reasons — those rows will read “Not available for browser inspection”.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DEVICE SECURITY ===================== -->
+<section class="section" id="device">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="eyebrow">Device Security</span>
+      <h2 class="section-title">Device <span class="grad-text">Protection</span></h2>
+      <p class="section-sub">Non-sensitive environment information, read from standard browser APIs. Processed locally and never transmitted.</p>
+    </div>
+    <div class="grid grid--4" id="deviceGrid">
+      <div class="stat" data-reveal><div class="stat__k">Browser</div><div class="stat__v" id="dvBrowser" style="font-size:1.15rem">—</div><div class="stat__sub" id="dvBrowserSub">Engine &amp; version family</div></div>
+      <div class="stat" data-reveal><div class="stat__k">Platform</div><div class="stat__v" id="dvOS" style="font-size:1.15rem">—</div><div class="stat__sub">Operating system category</div></div>
+      <div class="stat" data-reveal><div class="stat__k">Screen</div><div class="stat__v" id="dvScreen" style="font-size:1.15rem">—</div><div class="stat__sub">Resolution &amp; pixel ratio</div></div>
+      <div class="stat" data-reveal><div class="stat__k">Connection</div><div class="stat__v" id="dvConn" style="font-size:1.15rem">—</div><div class="stat__sub" id="dvConnSub">Where available</div></div>
+      <div class="stat" data-reveal><div class="stat__k">Colour scheme</div><div class="stat__v" id="dvDark" style="font-size:1.15rem">—</div><div class="stat__sub">Preferred theme</div></div>
+      <div class="stat" data-reveal><div class="stat__k">Language</div><div class="stat__v" id="dvLang" style="font-size:1.15rem">—</div><div class="stat__sub">Primary locale</div></div>
+      <div class="stat" data-reveal><div class="stat__k">Timezone</div><div class="stat__v" id="dvTZ" style="font-size:1.15rem">—</div><div class="stat__sub">Device time zone</div></div>
+      <div class="stat" data-reveal><div class="stat__k">Secure context</div><div class="stat__v" id="dvSecure" style="font-size:1.15rem">—</div><div class="stat__sub">HTTPS / localhost status</div></div>
+    </div>
+    <div class="note note--green mt-24" data-reveal>
+      <svg><use href="#i-lock"/></svg>
+      <span>Processed locally. None of this information is collected, stored on a server, or shared.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SECURITY SCORE ===================== -->
+<section class="section" id="score">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="eyebrow">Protection Score</span>
+      <h2 class="section-title">RakshaGrid <span class="grad-text">Protection Score</span></h2>
+      <p class="section-sub">An interactive score built from your local checks. Run the checks above, then calculate your score below.</p>
+    </div>
+    <div class="score-hero">
+      <div data-reveal>
+        <div class="big-ring">
+          <svg width="240" height="240" viewBox="0 0 240 240">
+            <circle cx="120" cy="120" r="104" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="16"/>
+            <circle id="bigRing" cx="120" cy="120" r="104" fill="none" stroke="url(#bigGrad)" stroke-width="16" stroke-linecap="round" stroke-dasharray="653" stroke-dashoffset="653"/>
+            <defs><linearGradient id="bigGrad" x1="0" y1="0" x2="240" y2="240" gradientUnits="userSpaceOnUse"><stop stop-color="#3d8bff"/><stop offset="0.6" stop-color="#35d6ef"/><stop offset="1" stop-color="#24c07a"/></linearGradient></defs>
+          </svg>
+          <div class="big-ring__val">
+            <span class="big-ring__num" id="bigScore">—</span>
+            <span class="big-ring__cat" id="bigCat">Not calculated</span>
+          </div>
+        </div>
+        <div class="center mt-24">
+          <button class="btn btn--primary" id="calcScore"><svg class="btn__ico"><use href="#i-gauge"/></svg>Calculate Protection Score</button>
+          <div class="mt-16"><button class="btn btn--danger btn--sm" id="clearAllData"><svg class="btn__ico"><use href="#i-trash"/></svg>Clear local data</button></div>
+        </div>
+      </div>
+      <div data-reveal>
+        <div class="cats" id="scoreCats">
+          <div class="cat-row"><div class="cat-row__top"><span class="cat-row__name">Identity Protection</span><span class="cat-row__val" data-catv="identity">—</span></div><div class="cat-row__track"><i class="cat-row__fill" data-catf="identity"></i></div></div>
+          <div class="cat-row"><div class="cat-row__top"><span class="cat-row__name">Privacy</span><span class="cat-row__val" data-catv="privacy">—</span></div><div class="cat-row__track"><i class="cat-row__fill" data-catf="privacy"></i></div></div>
+          <div class="cat-row"><div class="cat-row__top"><span class="cat-row__name">Password Security</span><span class="cat-row__val" data-catv="password">—</span></div><div class="cat-row__track"><i class="cat-row__fill" data-catf="password"></i></div></div>
+          <div class="cat-row"><div class="cat-row__top"><span class="cat-row__name">Browser Safety</span><span class="cat-row__val" data-catv="browser">—</span></div><div class="cat-row__track"><i class="cat-row__fill" data-catf="browser"></i></div></div>
+          <div class="cat-row"><div class="cat-row__top"><span class="cat-row__name">Digital Habits</span><span class="cat-row__val" data-catv="habits">—</span></div><div class="cat-row__track"><i class="cat-row__fill" data-catf="habits"></i></div></div>
+        </div>
+        <div class="scale-legend">
+          <span class="chip"><span class="dot" style="background:#ff5d6c;box-shadow:0 0 10px #ff5d6c"></span>0–39 High Risk</span>
+          <span class="chip"><span class="dot" style="background:#ff9f45;box-shadow:0 0 10px #ff9f45"></span>40–59 Needs Attention</span>
+          <span class="chip"><span class="dot" style="background:#9cc4ff;box-shadow:0 0 10px #9cc4ff"></span>60–79 Good</span>
+          <span class="chip"><span class="dot"></span>80–100 Strong</span>
+        </div>
+        <p class="hint mt-16" id="scoreNote">Only non-sensitive score history is saved to this browser's local storage.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROTECTION TOOLS ===================== -->
+<section class="section" id="tools">
+  <div class="wrap">
+    <div class="sec-head center" data-reveal>
+      <span class="eyebrow center-line">Protection Tools</span>
+      <h2 class="section-title">A Toolkit for <span class="grad-text">Digital Safety</span></h2>
+      <p class="section-sub center">Ten everyday security utilities that run entirely on your device. Cryptographic features use the browser-native Web Crypto API.</p>
+    </div>
+    <div class="tools-grid">
+
+      <!-- 1. Password strength -->
+      <article class="tool" data-reveal>
+        <div class="tool__head"><span class="tool__ico"><svg><use href="#i-key"/></svg></span><h3 class="tool__title">Password Strength Checker</h3></div>
+        <div class="tool__body">
+          <input class="input" type="password" id="t1pw" placeholder="Type a password" autocomplete="off" spellcheck="false" aria-label="Password to check">
+          <div class="meter"><div class="meter__track" id="t1meter" role="progressbar" aria-label="Tool password strength" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0"><span class="meter__seg"></span><span class="meter__seg"></span><span class="meter__seg"></span><span class="meter__seg"></span><span class="meter__seg"></span></div><div class="meter__meta"><span class="meter__cat" id="t1cat">Awaiting input</span><span id="t1bits">—</span></div></div>
+          <div class="tool__out" id="t1out"></div>
+        </div>
+      </article>
+
+      <!-- 2. Generator -->
+      <article class="tool" data-reveal>
+        <div class="tool__head"><span class="tool__ico"><svg><use href="#i-wand"/></svg></span><h3 class="tool__title">Secure Random Password Generator</h3></div>
+        <div class="tool__body">
+          <div class="field" style="margin:0">
+            <label for="t2len">Length: <span id="t2lenv">20</span></label>
+            <input type="range" id="t2len" min="8" max="64" value="20" style="width:100%" aria-label="Password length">
+          </div>
+          <div class="criteria" style="grid-template-columns:1fr 1fr">
+            <label class="check-item"><input type="checkbox" id="t2upper" checked><span class="check-item__box"><svg><use href="#i-check"/></svg></span><span class="check-item__txt">Uppercase</span></label>
+            <label class="check-item"><input type="checkbox" id="t2lower" checked><span class="check-item__box"><svg><use href="#i-check"/></svg></span><span class="check-item__txt">Lowercase</span></label>
+            <label class="check-item"><input type="checkbox" id="t2num" checked><span class="check-item__box"><svg><use href="#i-check"/></svg></span><span class="check-item__txt">Numbers</span></label>
+            <label class="check-item"><input type="checkbox" id="t2sym" checked><span class="check-item__box"><svg><use href="#i-check"/></svg></span><span class="check-item__txt">Symbols</span></label>
+          </div>
+          <div class="tool__out" id="t2out"></div>
+          <div class="row-between">
+            <button class="btn btn--ghost btn--sm" id="t2gen" type="button"><svg class="btn__ico"><use href="#i-wand"/></svg>Generate</button>
+            <button class="btn btn--ghost btn--sm" data-copy="#t2out" type="button"><svg class="btn__ico"><use href="#i-copy"/></svg>Copy</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3. URL analyzer -->
+      <article class="tool" data-reveal>
+        <div class="tool__head"><span class="tool__ico"><svg><use href="#i-link"/></svg></span><h3 class="tool__title">URL Risk Analyzer</h3></div>
+        <div class="tool__body">
+          <input class="input" type="text" id="t3url" placeholder="Paste a URL" autocomplete="off" spellcheck="false" aria-label="URL to analyze">
+          <div class="tool__out" id="t3out"></div>
+          <button class="btn btn--ghost btn--sm" id="t3run" type="button"><svg class="btn__ico"><use href="#i-radar"/></svg>Analyze structure</button>
+        </div>
+      </article>
+
+      <!-- 4. Hash generator -->
+      <article class="tool" data-reveal>
+        <div class="tool__head"><span class="tool__ico"><svg><use href="#i-hash"/></svg></span><h3 class="tool__title">Hash Generator</h3></div>
+        <div class="tool__body">
+          <textarea class="textarea" id="t4text" rows="2" placeholder="Text to hash" spellcheck="false" aria-label="Text to hash"></textarea>
+          <select class="select" id="t4algo" aria-label="Hash algorithm"><option value="SHA-256">SHA-256</option><option value="SHA-384">SHA-384</option><option value="SHA-512">SHA-512</option></select>
+          <div class="tool__out" id="t4out"></div>
+          <div class="row-between">
+            <button class="btn btn--ghost btn--sm" id="t4run" type="button"><svg class="btn__ico"><use href="#i-hash"/></svg>Generate</button>
+            <button class="btn btn--ghost btn--sm" data-copy="#t4out" type="button"><svg class="btn__ico"><use href="#i-copy"/></svg>Copy</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5. Text encryption demo -->
+      <article class="tool" data-reveal>
+        <div class="tool__head"><span class="tool__ico"><svg><use href="#i-encrypt"/></svg></span><h3 class="tool__title">Text Encryption Demo</h3></div>
+        <div class="tool__body">
+          <textarea class="textarea" id="t5text" rows="2" placeholder="Text to encrypt" spellcheck="false" aria-label="Text to encrypt"></textarea>
+          <input class="input" type="password" id="t5pass" placeholder="Passphrase (used locally)" autocomplete="off" spellcheck="false" aria-label="Passphrase">
+          <div class="tool__out" id="t5out"></div>
+          <div class="row-between">
+            <button class="btn btn--ghost btn--sm" id="t5enc" type="button"><svg class="btn__ico"><use href="#i-lock"/></svg>Encrypt</button>
+            <button class="btn btn--ghost btn--sm" id="t5dec" type="button"><svg class="btn__ico"><use href="#i-eye"/></svg>Decrypt</button>
+            <button class="btn btn--ghost btn--sm" data-copy="#t5out" type="button"><svg class="btn__ico"><use href="#i-copy"/></svg>Copy</button>
+          </div>
+          <span class="hint">AES-GCM with PBKDF2 key derivation, entirely in-browser. Educational local demo.</span>
+        </div>
+      </article>
+
+      <!-- 6. QR -->
+      <article class="tool" data-reveal>
+        <div class="tool__head"><span class="tool__ico"><svg><use href="#i-qr"/></svg></span><h3 class="tool__title">QR Code Generator</h3></div>
+        <div class="tool__body">
+          <input class="input" type="text" id="t6text" placeholder="Text or link to encode" spellcheck="false" aria-label="Text to encode as QR">
+          <div class="qr-holder" id="t6qr"><div class="qr-empty">Your QR code will appear here</div></div>
+          <div class="row-between">
+            <button class="btn btn--ghost btn--sm" id="t6run" type="button"><svg class="btn__ico"><use href="#i-qr"/></svg>Generate QR</button>
+            <button class="btn btn--ghost btn--sm" id="t6dl" type="button" disabled><svg class="btn__ico"><use href="#i-download"/></svg>Download</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 7. Security checklist -->
+      <article class="tool" data-reveal>
+        <div class="tool__head"><span class="tool__ico"><svg><use href="#i-list"/></svg></span><h3 class="tool__title">Security Checklist</h3></div>
+        <div class="tool__body">
+          <div class="check-list" id="t7list">
+            <label class="check-item"><input type="checkbox" data-k="s1"><span class="check-item__box"><svg><use href="#i-check"/></svg></span><span class="check-item__txt">Use a unique password per account</span></label>
+            <label class="check-item"><input type="checkbox" data-k="s2"><span class="check-item__box"><svg><use href="#i-check"/></svg></span><span class="check-item__txt">Enable two-factor authentication</span></label>
+            <label class="check-item"><input type="checkbox" data-k="s3"><span class="check-item__box"><svg><use href="#i-check"/></svg></span><span class="check-item__txt">Keep browser &amp; OS updated</span></label>
+            <label class="check-item"><input type="checkbox" data-k="s4"><span class="check-item__box"><svg><use href="#i-check"/></svg></span><span class="check-item__txt">Verify links before clicking</span></label>
+            <label class="check-item"><input type="checkbox" data-k="s5"><span class="check-item__box"><svg><use href="#i-check"/></svg></span><span class="check-item__txt">Review app permissions regularly</span></label>
+          </div>
+          <div class="meter"><div class="meter__track" id="t7meter" role="progressbar" aria-label="Checklist completion" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0"><span class="meter__seg"></span><span class="meter__seg"></span><span class="meter__seg"></span><span class="meter__seg"></span><span class="meter__seg"></span></div><div class="meter__meta"><span class="meter__cat" id="t7cat">0 / 5 complete</span><span></span></div></div>
+          <span class="hint">Saved to this browser only.</span>
+        </div>
+      </article>
+
+      <!-- 8. Privacy checklist -->
+      <article class="tool" data-reveal>
+        <div class="tool__head"><span class="tool__ico"><svg><use href="#i-eye"/></svg></span><h3 class="tool__title">Privacy Checklist</h3></div>
+        <div class="tool__body">
+          <div class="check-list" id="t8list">
+            <label class="check-item"><input type="checkbox" data-k="p1"><span class="check-item__box"><svg><use href="#i-check"/></svg></span><span class="check-item__txt">Review camera &amp; mic permissions</span></label>
+            <label class="check-item"><input type="checkbox" data-k="p2"><span class="check-item__box"><svg><use href="#i-check"/></svg></span><span class="check-item__txt">Limit location access to trusted apps</span></label>
+            <label class="check-item"><input type="checkbox" data-k="p3"><span class="check-item__box"><svg><use href="#i-check"/></svg></span><span class="check-item__txt">Clear cookies on shared devices</span></label>
+            <label class="check-item"><input type="checkbox" data-k="p4"><span class="check-item__box"><svg><use href="#i-check"/></svg></span><span class="check-item__txt">Turn on Do-Not-Track in your browser</span></label>
+            <label class="check-item"><input type="checkbox" data-k="p5"><span class="check-item__box"><svg><use href="#i-check"/></svg></span><span class="check-item__txt">Avoid entering data on untrusted sites</span></label>
+          </div>
+          <div class="meter"><div class="meter__track" id="t8meter" role="progressbar" aria-label="Privacy checklist completion" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0"><span class="meter__seg"></span><span class="meter__seg"></span><span class="meter__seg"></span><span class="meter__seg"></span><span class="meter__seg"></span></div><div class="meter__meta"><span class="meter__cat" id="t8cat">0 / 5 complete</span><span></span></div></div>
+          <span class="hint">Saved to this browser only.</span>
+        </div>
+      </article>
+
+      <!-- 9. JSON security formatter -->
+      <article class="tool" data-reveal>
+        <div class="tool__head"><span class="tool__ico"><svg><use href="#i-json"/></svg></span><h3 class="tool__title">JSON Security Formatter</h3></div>
+        <div class="tool__body">
+          <textarea class="textarea" id="t9text" rows="3" placeholder='{"key":"value"}' spellcheck="false" aria-label="JSON input"></textarea>
+          <div class="tool__out" id="t9out"></div>
+          <div class="row-between">
+            <button class="btn btn--ghost btn--sm" id="t9run" type="button"><svg class="btn__ico"><use href="#i-json"/></svg>Format &amp; inspect</button>
+            <button class="btn btn--ghost btn--sm" data-copy="#t9out" type="button"><svg class="btn__ico"><use href="#i-copy"/></svg>Copy</button>
+          </div>
+          <span class="hint">Flags sensitive-looking keys (password, token, otp, card) without reading values.</span>
+        </div>
+      </article>
+
+      <!-- 10. File hash calculator (mini) -->
+      <article class="tool" data-reveal>
+        <div class="tool__head"><span class="tool__ico"><svg><use href="#i-file"/></svg></span><h3 class="tool__title">File Hash Calculator</h3></div>
+        <div class="tool__body">
+          <label class="dropzone" for="t10file" id="t10drop" tabindex="0">
+            <svg><use href="#i-upload-cloud"/></svg>
+            <div style="font-weight:600;font-size:0.9rem">Choose a file</div>
+            <div class="hint">Hashed locally with SHA-256</div>
+          </label>
+          <input type="file" id="t10file" class="sr-only" aria-label="Choose a file to hash">
+          <div class="tool__out" id="t10out"></div>
+          <span class="hint">Your file never leaves this browser.</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FILE SECURITY ===================== -->
+<section class="section" id="file">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="eyebrow">File Security</span>
+      <h2 class="section-title">Local File <span class="grad-text">Integrity Check</span></h2>
+      <p class="section-sub">Select a file to compute its SHA-256 fingerprint in your browser. Useful for verifying a download or comparing two copies.</p>
+    </div>
+    <div class="split split--wide-left">
+      <div class="panel" data-reveal>
+        <label class="dropzone" for="fileInput" id="fileDrop" tabindex="0" role="button" aria-describedby="fileHint">
+          <svg><use href="#i-upload-cloud"/></svg>
+          <div style="font-weight:600">Drop a file here or click to browse</div>
+          <div class="hint" id="fileHint">Any file type · processed locally with SHA-256</div>
+        </label>
+        <input type="file" id="fileInput" class="sr-only" aria-label="Choose a file for integrity check">
+        <div class="file-meta" id="fileMeta" hidden>
+          <div class="kv"><div class="kv__k">File Name</div><div class="kv__v" id="fmName">—</div></div>
+          <div class="kv"><div class="kv__k">File Size</div><div class="kv__v" id="fmSize">—</div></div>
+          <div class="kv"><div class="kv__k">File Type</div><div class="kv__v" id="fmType">—</div></div>
+          <div class="kv"><div class="kv__k">Last Modified</div><div class="kv__v" id="fmMod">—</div></div>
+          <div class="kv kv--wide"><div class="kv__k">SHA-256 Hash</div><div class="kv__v mono" id="fmHash">—</div></div>
+        </div>
+        <div class="row-between mt-16">
+          <button class="btn btn--ghost btn--sm" id="fmCopy" type="button" disabled><svg class="btn__ico"><use href="#i-copy"/></svg>Copy hash</button>
+          <button class="btn btn--danger btn--sm" id="fmReset" type="button"><svg class="btn__ico"><use href="#i-trash"/></svg>Reset</button>
+        </div>
+      </div>
+      <div class="panel" data-reveal>
+        <h3 style="font-size:1.05rem;margin-bottom:14px">How integrity checking works</h3>
+        <p class="section-sub" style="font-size:0.9rem">A cryptographic hash is a fixed-length fingerprint of a file's contents. If even one byte changes, the SHA-256 value changes completely — so comparing two hashes is a reliable way to confirm two files are identical.</p>
+        <div class="note note--green mt-16"><svg><use href="#i-lock"/></svg><span>Your file never leaves this browser. Hashing runs in memory using the Web Crypto API.</span></div>
+        <div class="note mt-16"><svg><use href="#i-info"/></svg><span>Requires a secure context (HTTPS or localhost). If Web Crypto is unavailable, hashing will be reported as unsupported.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DASHBOARD ===================== -->
+<section class="section" id="dashboard">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="eyebrow">Security Dashboard</span>
+      <h2 class="section-title">Your Local <span class="grad-text">Security Dashboard</span></h2>
+      <p class="section-sub">A SaaS-style overview of your protection posture, drawn from local checks only. Charts are rendered with Canvas — no analytics service involved.</p>
+    </div>
+    <div class="dash-grid">
+      <div class="stat" data-reveal><div class="stat__k">Protection Score</div><div class="stat__v" id="dashScore">—</div><div class="stat__sub" id="dashScoreSub">Not calculated yet</div></div>
+      <div class="stat" data-reveal><div class="stat__k">Security Status</div><div class="stat__v" id="dashStatus" style="font-size:1.3rem">—</div><div class="stat__sub">Overall posture</div></div>
+      <div class="stat" data-reveal><div class="stat__k">Recent Local Checks</div><div class="stat__v" id="dashChecks">0</div><div class="stat__sub">This session &amp; saved</div></div>
+      <div class="stat" data-reveal><div class="stat__k">Protection Progress</div><div class="stat__v" id="dashProgress">0%</div><div class="stat__sub">Across categories</div></div>
+    </div>
+    <div class="dash-2col">
+      <div class="chart-card" data-reveal>
+        <h3>Security Categories</h3>
+        <p class="hint">Category-wise local assessment</p>
+        <canvas id="chartCats" width="640" height="240" aria-label="Security categories chart" role="img"></canvas>
+      </div>
+      <div class="chart-card" data-reveal>
+        <h3>Risk Distribution</h3>
+        <p class="hint">Outcomes from your recent local checks</p>
+        <canvas id="chartRisk" width="420" height="240" aria-label="Risk distribution chart" role="img"></canvas>
+        <div class="legend" id="riskLegend"></div>
+      </div>
+    </div>
+    <div class="dash-2col mt-24">
+      <div class="chart-card" data-reveal>
+        <h3>Protection Progress</h3>
+        <p class="hint">Score history saved locally over time</p>
+        <canvas id="chartHistory" width="640" height="240" aria-label="Protection progress over time" role="img"></canvas>
+      </div>
+      <div class="chart-card" data-reveal>
+        <h3 class="row-between" style="display:flex">Local Security Activity <button class="btn btn--danger btn--sm" id="clearActivity" type="button"><svg class="btn__ico"><use href="#i-trash"/></svg>Clear Activity</button></h3>
+        <p class="hint">Locally generated activity metadata</p>
+        <div class="activity" id="activityList" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== INDIA DIGITAL NETWORK ===================== -->
+<section class="section scene-section" id="india">
+  <div class="scene-canvas" id="indiaCanvas" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="sec-head center" data-reveal style="margin-bottom:0">
+      <span class="eyebrow center-line">India Digital Network</span>
+      <h2 class="section-title">Securing India's <span class="grad-text">Digital Future</span></h2>
+      <p class="section-sub center">Connected India needs protected digital experiences.</p>
+      <div class="hero__badges center" style="justify-content:center;margin-top:22px">
+        <span class="chip"><span class="dot blue"></span>Ahmedabad</span>
+        <span class="chip"><span class="dot blue"></span>Mumbai</span>
+        <span class="chip"><span class="dot blue"></span>Delhi</span>
+        <span class="chip"><span class="dot blue"></span>Bengaluru</span>
+        <span class="chip"><span class="dot blue"></span>Hyderabad</span>
+        <span class="chip"><span class="dot blue"></span>Chennai</span>
+        <span class="chip"><span class="dot blue"></span>Pune</span>
+        <span class="chip"><span class="dot blue"></span>Surat</span>
+        <span class="chip"><span class="dot blue"></span>Jaipur</span>
+        <span class="chip"><span class="dot blue"></span>Kolkata</span>
+      </div>
+      <p class="hint mt-24" style="max-width:640px;margin-left:auto;margin-right:auto">Visual representation only. This graphic does not represent real-time Indian cyber infrastructure or live network data.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DEFENSE ARCHITECTURE ===================== -->
+<section class="section" id="architecture">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="eyebrow">Defense Architecture</span>
+      <h2 class="section-title">Protection at <span class="grad-text">Every Layer</span></h2>
+      <p class="section-sub">RakshaGrid is designed around five conceptual layers of protection that wrap around a central shield.</p>
+    </div>
+    <div class="split split--wide-left">
+      <div class="panel" data-reveal style="padding:0;overflow:hidden">
+        <div id="shieldCanvas" style="width:100%;height:420px" aria-hidden="true"></div>
+      </div>
+      <div data-reveal>
+        <div class="layers" id="layerList">
+          <div class="layer"><span class="layer__n">01</span><span class="layer__name">IDENTITY</span><span class="layer__desc">Who you are</span><span class="layer__dot" style="background:#3d8bff;box-shadow:0 0 10px #3d8bff"></span></div>
+          <div class="layer"><span class="layer__n">02</span><span class="layer__name">PRIVACY</span><span class="layer__desc">What you share</span><span class="layer__dot" style="background:#35d6ef;box-shadow:0 0 10px #35d6ef"></span></div>
+          <div class="layer"><span class="layer__n">03</span><span class="layer__name">DEVICE</span><span class="layer__desc">Where you connect</span><span class="layer__dot" style="background:#24c07a;box-shadow:0 0 10px #24c07a"></span></div>
+          <div class="layer"><span class="layer__n">04</span><span class="layer__name">DATA</span><span class="layer__desc">What you protect</span><span class="layer__dot" style="background:#ff9f45;box-shadow:0 0 10px #ff9f45"></span></div>
+          <div class="layer"><span class="layer__n">05</span><span class="layer__name">ACCESS</span><span class="layer__desc">How you enter</span><span class="layer__dot" style="background:#a98bff;box-shadow:0 0 10px #a98bff"></span></div>
+        </div>
+        <p class="hint mt-16">Protection starts at every layer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TRUST ===================== -->
+<section class="section" id="trust">
+  <div class="wrap">
+    <div class="sec-head center" data-reveal>
+      <span class="eyebrow center-line">Trust</span>
+      <h2 class="section-title">Privacy by <span class="grad-text">Design</span></h2>
+      <p class="section-sub center">RakshaGrid is built around a simple principle: do the work where the data already is — inside your browser.</p>
+    </div>
+    <div class="grid grid--3">
+      <article class="trust-card" data-reveal data-tilt>
+        <div class="trust-card__ico"><svg><use href="#i-cpu"/></svg></div>
+        <h3>LOCAL PROCESSING</h3>
+        <p>Where possible, security checks happen directly inside your browser.</p>
+      </article>
+      <article class="trust-card" data-reveal data-tilt>
+        <div class="trust-card__ico"><svg><use href="#i-lock"/></svg></div>
+        <h3>NO UNNECESSARY DATA</h3>
+        <p>RakshaGrid is designed to minimize unnecessary information collection.</p>
+      </article>
+      <article class="trust-card" data-reveal data-tilt>
+        <div class="trust-card__ico"><svg><use href="#i-eye"/></svg></div>
+        <h3>TRANSPARENT CHECKS</h3>
+        <p>Browser-based checks clearly explain their limitations.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BUSINESS ===================== -->
+<section class="section" id="business">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="eyebrow">For the Digital Economy</span>
+      <h2 class="section-title">Security Built for the <span class="grad-text">Digital Economy</span></h2>
+      <p class="section-sub">RakshaGrid Digital is designed as a scalable security product experience for India's growing digital ecosystem.</p>
+    </div>
+    <div class="grid grid--3">
+      <article class="seg" data-reveal data-tilt><div class="seg__ico"><svg><use href="#i-heart"/></svg></div><h3>Individuals</h3><p>Everyday protection checks for personal digital life.</p></article>
+      <article class="seg" data-reveal data-tilt><div class="seg__ico"><svg><use href="#i-spark"/></svg></div><h3>Creators</h3><p>Safer links, safer sharing and safer audiences.</p></article>
+      <article class="seg" data-reveal data-tilt><div class="seg__ico"><svg><use href="#i-graduation"/></svg></div><h3>Students</h3><p>Build strong digital habits early with local tools.</p></article>
+      <article class="seg" data-reveal data-tilt><div class="seg__ico"><svg><use href="#i-briefcase"/></svg></div><h3>Freelancers</h3><p>Protect client work and credentials with confidence.</p></article>
+      <article class="seg" data-reveal data-tilt><div class="seg__ico"><svg><use href="#i-rocket"/></svg></div><h3>Startups</h3><p>Security-aware foundations from day one.</p></article>
+      <article class="seg" data-reveal data-tilt><div class="seg__ico"><svg><use href="#i-store"/></svg></div><h3>Small Businesses</h3><p>Practical protection for teams without a security desk.</p></article>
+    </div>
+    <p class="hint mt-24" data-reveal>RakshaGrid Digital is an early-stage product experience. No enterprise customer relationships are claimed or implied.</p>
+  </div>
+</section>
+
+<!-- ===================== CTA ===================== -->
+<section class="cta-band scene-section" id="cta">
+  <div class="scene-canvas" id="ctaCanvas" aria-hidden="true"></div>
+  <div class="wrap scene-overlay">
+    <span class="eyebrow center-line" style="justify-content:center" data-reveal>Take Control</span>
+    <h2 data-reveal>Check Your <span class="grad-text">Digital Protection.</span></h2>
+    <p data-reveal>Run the local checks, review your protection score, and build safer digital habits — all without an account.</p>
+    <div class="cta-band__actions" data-reveal>
+      <a class="btn btn--primary" href="#score"><svg class="btn__ico"><use href="#i-shield"/></svg>Start Security Check</a>
+      <a class="btn btn--ghost" href="#center">Explore RakshaGrid <svg class="btn__ico"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section class="section" id="company">
+  <div class="wrap">
+    <div class="split split--wide-left">
+      <div data-reveal>
+        <span class="eyebrow">Company</span>
+        <h2 class="section-title">Building a More Secure <span class="grad-text">Digital India</span></h2>
+        <p class="section-sub">RakshaGrid Digital is building privacy-first digital protection experiences designed for a connected India.</p>
+        <div class="values mt-32">
+          <span class="value-chip"><svg><use href="#i-lock"/></svg>Privacy</span>
+          <span class="value-chip"><svg><use href="#i-shield"/></svg>Security</span>
+          <span class="value-chip"><svg><use href="#i-eye"/></svg>Transparency</span>
+          <span class="value-chip"><svg><use href="#i-cpu"/></svg>Responsible Technology</span>
+          <span class="value-chip"><svg><use href="#i-spark"/></svg>Innovation</span>
+        </div>
+      </div>
+      <div class="panel" data-reveal>
+        <h3 style="font-size:1.05rem;margin-bottom:14px">What RakshaGrid stands for</h3>
+        <p class="section-sub" style="font-size:0.92rem">Raksha means protection. Grid means a connected digital security network. Together they describe a platform that treats every connection — a person, a device, a link — as part of one protective fabric.</p>
+        <div class="note mt-16"><svg><use href="#i-info"/></svg><span>RakshaGrid Digital is an independent technology platform and is not affiliated with or operated by the Government of India.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a class="brand" href="#home" aria-label="RakshaGrid Digital">
+          <svg class="brand__mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <path d="M24 3l17 7v12c0 10.5-7.2 18-17 22-9.8-4-17-11.5-17-22V10l17-7z" stroke="url(#fg1)" stroke-width="2.2"/>
+            <path d="M24 15v9M18.5 19.5h11M18.5 24.5h11" stroke="#35d6ef" stroke-width="1.3" stroke-linecap="round"/>
+            <circle cx="24" cy="19.5" r="1.8" fill="#35d6ef"/>
+            <defs><linearGradient id="fg1" x1="7" y1="3" x2="41" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#3d8bff"/><stop offset="1" stop-color="#35d6ef"/></linearGradient></defs>
+          </svg>
+          <span class="brand__text"><span class="brand__name">RAKSHAGRID</span><span class="brand__sub">DIGITAL</span></span>
+        </a>
+        <p class="footer__tag">India's Digital Protection Network.</p>
+      </div>
+      <div>
+        <h4>Platform</h4>
+        <div class="footer__links">
+          <a href="#center">Security Center</a>
+          <a href="#scanner">Risk Scanner</a>
+          <a href="#tools">Protection Tools</a>
+          <a href="#dashboard">Dashboard</a>
+        </div>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <div class="footer__links">
+          <a href="#privacy">Privacy</a>
+          <a href="#trust">Trust</a>
+          <a href="#company">Company</a>
+          <a href="#business">Who it's for</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__copy">© 2026 RakshaGrid Digital</span>
+      <span class="footer__disc">RakshaGrid Digital is an independent technology platform and is not affiliated with or operated by the Government of India. All checks run locally in your browser and are not server-side security scans.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast-wrap" id="toastWrap" aria-live="polite" aria-atomic="true"></div>
+
+<!-- ===================== SCRIPTS ===================== -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js" defer></script>
+<script type="importmap">
+{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }
+</script>
+<script src="js/config.js"></script>
+<script src="js/security.js" defer></script>
+<script src="js/scanner.js" defer></script>
+<script src="js/tools.js" defer></script>
+<script src="js/dashboard.js" defer></script>
+<script src="js/app.js" defer></script>
+<script type="module" src="js/three-scene.js"></script>
+</body>
+</html>
